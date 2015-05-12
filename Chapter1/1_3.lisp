@@ -1,3 +1,4 @@
+; to continue
 (define (square-biggests x y z)
 	(cond 	((and (>= x z) (>= y z))
 			(+ (square x) (square y))) 
