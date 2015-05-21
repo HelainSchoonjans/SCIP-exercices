@@ -1,4 +1,4 @@
-; continue
+#lang racket
 (define tolerance 0.00001)
 (define (fixed-point f first-guess)
   (define (close-enough? v1 v2)
@@ -25,9 +25,9 @@
 
 (define (cubic a b c)
   (define (cube x)
-    (* a a a))
+    (* x x x))
   (define (square x)
-    (* b b))
+    (* x x))
   (lambda (x) (+ (cube x) (* a (square x)) (* b x) c)))
 
 (newtons-method (cubic 1 2 3) 1) 
