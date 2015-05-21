@@ -1,4 +1,4 @@
-First one:
+; First one:
 (+ 4 5)
 (inc (+ 3 5))
 (inc (inc (+ 2 5)))
@@ -10,9 +10,9 @@ First one:
 (inc 8)
 9
 
-This is a linearly recursive process.
+; This is a linearly recursive process.
 
-Second one:
+; Second one:
 (+ 4 5)
 (+ 3 6)
 (+ 2 7)
@@ -20,4 +20,4 @@ Second one:
 (+ 0 9)
 9
 
-This is a linearly iterative process.
+; This is a linearly iterative process.
