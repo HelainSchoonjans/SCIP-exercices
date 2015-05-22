@@ -1,3 +1,4 @@
+#lang racket
 (define (exp-lin base n)
   (exp-iter base base 1 n 1))
 

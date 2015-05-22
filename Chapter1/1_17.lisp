@@ -1,14 +1,12 @@
-;to continue
-(define (fast-mult x y)
-  (define (double i) (* 2 i))
-  (define (halve i) (/ i 2))
-  (define (even i) (= (remainder i 2) 0))
-  (define (mult-iter x y acc total)
-    (cond ((= y 1) total)
-          ((even y) (mult-iter x (halve y) (double acc) total))
-          ((= acc x) (mult-iter x (- y 1) x (+ x total)))
-          (else (mult-iter x y x (+ total acc)))))
-  (mult-iter x y x 0))
+#lang racket
+(define (double i) (+ i i))
+(define (halve i) (/ i 2))
+(define (even i) (= (remainder i 2) 0))
+
+(define (fast-mult a b)
+  (cond ((= b 0) 0)
+        ((even b) (double (fast-mult a (halve b))))
+        (else (+ a (fast-mult a (- b 1))))))
 
 (fast-mult 0 2)
 (fast-mult 1 1)
