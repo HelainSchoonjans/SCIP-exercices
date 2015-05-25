@@ -1,1 +1,20 @@
 #lang racket
+(define (even? x)
+  (= 0 (remainder x 2)))
+(define (divisible-by-three? x)
+  (= 0 (remainder x 3)))
+
+(define (cons x y)
+  (* (expt 2 x) (expt 3 y)))
+(define (car x)
+  (if (even? x)
+      (+ 1 (car (/ x 2)))
+      0))
+(define (cdr x)
+  (if (divisible-by-three? x)
+      (+ 1 (cdr (/ x 3)))
+      0))
+
+(cons 5 6)
+(car (cons 5 6))
+(cdr (cons 5 6))
