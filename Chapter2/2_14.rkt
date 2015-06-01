@@ -1,1 +1,61 @@
+; to continue
 #lang racket
+(define (par1 r1 r2)
+  (div-interval (mul-interval r1 r2)
+                (add-interval r1 r2)))
+(define (par2 r1 r2)
+  (let ((one (make-interval 1 1)))
+    (div-interval one
+                  (add-interval (div-interval one r1)
+                                (div-interval one r2)))))
+
+(define (make-interval a b) (cons a b))
+(define (lower-bound interval)
+  (min (car interval) (cdr interval)))
+(define (upper-bound interval)
+  (max (car interval) (cdr interval)))
+
+(define (mul-interval x y)
+  (let ((p1 (* (lower-bound x) (lower-bound y)))
+        (p2 (* (lower-bound x) (upper-bound y)))
+        (p3 (* (upper-bound x) (lower-bound y)))
+        (p4 (* (upper-bound x) (upper-bound y))))
+    (make-interval (min p1 p2 p3 p4)
+                   (max p1 p2 p3 p4))))
+
+(define (div-interval x y)
+  (mul-interval x
+                (make-interval (/ 1.0 (upper-bound y))
+                               (/ 1.0 (lower-bound y)))))
+
+
+(define (add-interval x y)
+  (make-interval (+ (lower-bound x) (lower-bound y))
+                 (+ (upper-bound x) (upper-bound y))))
+
+(define a (make-interval 1 2))
+(define b (make-interval 2 3))
+(define c (make-interval 0.1 1))
+(define d (make-interval 0.9 1.1))
+(define e (make-interval 1.9 2.1))
+(define f (make-interval 0.999 1.001))
+(define g (make-interval 1 1.001))
+(par1 a b)
+(par2 a b)
+(par1 a a)
+(par2 a a)
+(par1 a c)
+(par2 a c)
+(par1 d e)
+(par2 d e)
+(par1 d d)
+(par2 d d)
+(par1 f f)
+(par2 f f)
+(mul-interval f f)
+(add-interval f f)
+(div-interval f f)
+
+(mul-interval g g)
+(add-interval g g)
+(div-interval g g)
