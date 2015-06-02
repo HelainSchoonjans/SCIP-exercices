@@ -1,5 +1,3 @@
-; to continue
-; could be improved
 #lang racket
 (define (make-segment first-point second-point)
   (cons first-point second-point))
