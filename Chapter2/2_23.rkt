@@ -1,1 +1,28 @@
 #lang racket
+
+(define (for-each proc lst)
+  (define (iter proc lst acc)
+    (if (null? (cdr lst))
+        (proc (car lst))
+        (iter proc (cdr lst) (proc (car lst)))))
+  (iter proc lst '()))
+
+
+(define (for-each2 proc lst)
+  (cond ((null? lst)
+         lst)
+        ((null? (cdr lst))
+         (proc (car lst)))
+        (else (proc (car lst))
+              (for-each2 proc (cdr lst)))))
+      
+
+
+
+(for-each (lambda (x) (newline) (display x))
+          (list 57 321 88))
+
+(newline)
+
+(for-each2 (lambda (x) (newline) (display x))
+          (list 57 321 88))

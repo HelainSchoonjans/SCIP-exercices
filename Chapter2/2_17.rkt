@@ -2,7 +2,7 @@
 
 (define (last-pair lst)
   (if (null? (cdr lst))
-      lst
+      lst ;  (car lst) if we want the last element only
       (last-pair (cdr lst))))
 
 
