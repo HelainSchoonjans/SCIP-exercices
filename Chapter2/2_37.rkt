@@ -1,5 +1,4 @@
 #lang racket
-; to continue
 
 (define (accumulate op initial sequence)
   (if (null? sequence)
