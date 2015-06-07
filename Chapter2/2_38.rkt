@@ -1,5 +1,11 @@
 #lang racket
 ; to continue
+(define (accumulate op initial sequence)
+  (if (null? sequence)
+      initial
+      (op (car sequence)
+          (accumulate op initial (cdr sequence)))))
+
 
 (define (fold-right op initial sequence)
   (if (null? sequence)
@@ -17,5 +23,13 @@
 
 (fold-right / 1 (list 1 2 3))
 (fold-left / 1 (list 1 2 3))
-(fold-right list nil (list 1 2 3))
-(fold-left list nil (list 1 2 3))
+(fold-right list '() (list 1 2 3))
+(fold-left list '() (list 1 2 3))
+
+
+; give a property
+; associativity
+(fold-right + 1 (list 1 2 3))
+(fold-left + 1 (list 1 2 3))
+(fold-right - 1 (list 1 2 3))
+(fold-left - 1 (list 1 2 3))
