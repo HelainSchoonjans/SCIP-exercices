@@ -19,16 +19,10 @@
               (cdr rest))))
   (iter initial sequence))
 
+(define (reverse1 sequence)
+  (fold-right (lambda (x y) (append y (list x))) '() sequence))
+(define (reverse2 sequence)
+  (fold-left (lambda (x y) (cons y x)) '() sequence))
 
-(fold-right / 1 (list 1 2 3))
-(fold-left / 1 (list 1 2 3))
-(fold-right list '() (list 1 2 3))
-(fold-left list '() (list 1 2 3))
-
-
-; give a property
-; associativity
-(fold-right + 1 (list 1 2 3))
-(fold-left + 1 (list 1 2 3))
-(fold-right - 1 (list 1 2 3))
-(fold-left - 1 (list 1 2 3))
+(reverse1 (list 1 2 3))
+(reverse2 (list 1 2 3))
