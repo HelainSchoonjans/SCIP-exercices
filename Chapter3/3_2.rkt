@@ -1,5 +1,4 @@
 #lang racket
-; to continue
 (define (make-monitored f)
   (let ((count 0))
   (lambda (arg)
