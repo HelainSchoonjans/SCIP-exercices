@@ -1,4 +1,5 @@
 #lang racket
+; to continue
 ; compute the complexities...
 
 (define (entry tree) (car tree))
