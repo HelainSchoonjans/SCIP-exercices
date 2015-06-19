@@ -143,3 +143,9 @@
         
 (count-change 11)
 
+; What are the orders of growth of the space and number of
+; steps used by this process as the amount to be changed increases?
+
+; space: O(n) since we make recursive calls until after a number of substractions proportional to the size of n have been made.
+; (number of times the smallest denominator divides the amount)
+; steps: O(n^k) where k is the number of coin sizes
