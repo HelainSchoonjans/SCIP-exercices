@@ -69,6 +69,3 @@
 ;     (list i))
 ;   (enumerate-interval 1 n))
 ;(unique-pairs 2)
-
-
->>>>>>> origin/master
