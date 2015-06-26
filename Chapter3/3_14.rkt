@@ -1,2 +1,6 @@
 #lang racket
-; to continue
+; to continue : add box and pointer
+
+
+; mystery reverses the list.
+

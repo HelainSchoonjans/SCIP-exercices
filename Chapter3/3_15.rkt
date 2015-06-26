@@ -1,2 +1,2 @@
 #lang racket
-; to continue
+; to continue : draw box and pointer
