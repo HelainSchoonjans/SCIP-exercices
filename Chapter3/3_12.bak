@@ -1,0 +1,5 @@
+#lang racket
+; to continue
+
+; response 1: ('b)
+; response 2: ('b 'c 'd)

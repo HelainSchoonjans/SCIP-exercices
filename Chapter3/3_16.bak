@@ -1,0 +1,17 @@
+#lang racket
+; to continue
+
+(list 'a 'b 'c)
+
+(define x (list 'a))
+(define y (list 'b x))
+(define z (list 'c x))
+(set-cdr! y z)
+
+
+
+
+
+; never at all:
+(make-cycle (list 'a 'b 'c))
+

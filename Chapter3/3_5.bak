@@ -1,0 +1,13 @@
+#lang racket
+; to continue
+
+;Implement Monte Carlo integration as a procedure estimate-integral that takes as arguments a
+;predicate P, upper and lower bounds x1, x2, y1, and y2 for the rectangle, and the number of trials to
+;perform in order to produce the estimate. Your procedure should use the same monte-carlo
+;procedure that was used above to estimate . 
+
+
+
+
+;Use your estimate-integral to produce an
+;estimate of by measuring the area of a unit circle.
